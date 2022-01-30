@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1643184285 source:c:\codes\trapping rainwater problem\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+

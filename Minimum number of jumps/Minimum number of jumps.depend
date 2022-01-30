@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1641660565 source:c:\codes\minimum number of jumps\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+

@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1643091146 source:c:\codes\longest consecutive subsequence\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+

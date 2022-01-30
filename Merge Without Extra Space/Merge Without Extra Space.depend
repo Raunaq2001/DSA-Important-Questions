@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1641491260 source:c:\codes\merge without extra space\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+

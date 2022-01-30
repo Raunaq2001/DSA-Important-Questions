@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1641495147 source:c:\codes\find the duplicate in an array of n+1 integers\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+

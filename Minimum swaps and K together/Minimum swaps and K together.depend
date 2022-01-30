@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1643093831 source:c:\codes\minimum swaps and k together\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+

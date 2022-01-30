@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1643014840 source:c:\codes\smallest subarray with sum greater than a given value\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+

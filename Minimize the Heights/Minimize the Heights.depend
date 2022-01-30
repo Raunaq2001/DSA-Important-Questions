@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1641460492 source:c:\codes\minimize the heights\main.cpp
+	<iostream>
+	<vector>
+	<bits/stdc++.h>
+

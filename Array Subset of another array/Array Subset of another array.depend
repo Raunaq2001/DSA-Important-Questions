@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1642961673 source:c:\codes\array subset of another array\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+

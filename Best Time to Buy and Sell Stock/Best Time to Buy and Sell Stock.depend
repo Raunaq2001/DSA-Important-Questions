@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1641382463 source:c:\codes\best time to buy and sell stock\main.cpp
+	<iostream>
+	<vector>
+

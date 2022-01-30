@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1643045706 source:c:\codes\three way partitioning of an array around a given range\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+
