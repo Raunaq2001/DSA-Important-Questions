@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1644948258 source:c:\codes\bst\constructbst from inorder\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+
