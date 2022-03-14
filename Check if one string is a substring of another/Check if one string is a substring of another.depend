@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1647277051 source:c:\codes\strings\check if one string is a substring of another\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+
