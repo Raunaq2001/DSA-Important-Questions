@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1647459969 source:c:\codes\strings\check if a string is a valid shuffle of two other strings\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+
