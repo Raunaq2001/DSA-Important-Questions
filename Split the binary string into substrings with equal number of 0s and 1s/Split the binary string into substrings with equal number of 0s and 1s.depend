@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1647529394 source:c:\codes\strings\split the binary string into substrings with equal number of 0s and 1s\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+
