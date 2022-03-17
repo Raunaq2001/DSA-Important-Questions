@@ -1,32 +1,17 @@
-#include<iostream>
-#include<bits/stdc++.h>
-using namespace std;
-struct Interval{
-    int s,e;
-};
-bool compare(Interval i1,Interval i2){
-    return i1.s<i2.s;
-}
-void mergeIntervals(Interval arr[],int n){
-    sort(arr,arr+n,compare);
-    int index=0;
-    for(int i=1;i<n;i++){
-        if(arr[index].e>=arr[i].s){
-            arr[index].e=max(arr[index].e,arr[i].e);
+// @Author: RAUNAQ SINGH
+vector<vector<int>> overlappedInterval(vector<vector<int>>& intervals) {
+        vector<vector<int>> ans;
+        int j=0;
+        sort(intervals.begin(),intervals.end());
+        ans.push_back(intervals[0]);
+        for(int i=1;i<intervals.size();i++){
+            if(ans[j][1]>=intervals[i][0]){
+                ans[j][1]=max(ans[j][1],intervals[i][1]);
+            }
+            else if(ans[j][1]<intervals[i][0]){
+                ans.push_back(intervals[i]);
+                j++;
+            }
         }
-        else{
-            index++;
-            arr[index]=arr[i];
-        }
+        return ans;
     }
-    for(int i=0;i<=index;i++){
-        cout<<"["<<arr[i].s<<" "<<arr[i].e<<"]";
-    }
-    return;
-}
-int main(){
-    Interval arr[]={{6,8},{1,9},{2,4},{4,7}};
-    int size=sizeof(arr)/sizeof(arr[0]);
-    mergeIntervals(arr,size);
-    return 0;
-}
