@@ -1,28 +1,10 @@
-#include<iostream>
-#include<vector>
-using namespace std;
-int main()
-{
-    vector<int> vec;
-    int size=0,profit=NULL,maxProfit=NULL;
-    cout<<"Enter the array size = ";
-    cin>>size;
-    cout<<"Enter the array elements = ";
-    for(int i=0;i<size;i++){
-        int num;
-        cin>>num;
-        vec.push_back(num);
-    }
-    for(int i=0;i<size-1;i++){
-        for(int j=i+1;j<size;j++){
-            if(vec[j]>vec[i]){
-                profit=vec[j]-vec[i];
-                if(maxProfit<profit){
-                    maxProfit=profit;
-                }
-            }
+//Leetcode question # 121
+//https://www.youtube.com/watch?v=34WE6kwq49U&list=PLUcsbZa0qzu3yNzzAxgvSgRobdUUJvz7p&index=14&ab_channel=AnujBhaiya
+int maxProfit(vector<int>& prices) {
+        int minSoFar=prices[0],maxProfit=0;
+        for(int i=0;i<prices.size();i++){
+            minSoFar=min(minSoFar,prices[i]);
+            maxProfit=max(maxProfit,prices[i]-minSoFar);
         }
+        return maxProfit;
     }
-    cout<<"Maximum profit = "<<maxProfit;
-    return 0;
-}
