@@ -28,3 +28,27 @@ int main()
     cout<<max_so_far;
     return 0;
 }
+
+NOTE: The above problem works only if the array contains all the elements that are greater than or equal to zero.
+      Below is the optimized approach which will work for all types of arrays all positive,all negative, mix.
+//Leetcode question # 53    
+//Code solution by Raunaq Singh
+int maxSubArray(vector<int>& nums) {
+        int maxTillNow=0,maxSoFar=0;
+        for(int i=0;i<nums.size();i++){
+            if(maxTillNow<0){
+                maxTillNow=0;
+            }
+            if(maxTillNow>maxSoFar){
+                maxSoFar=maxTillNow;
+            }
+            maxTillNow=maxTillNow+nums[i];
+        }
+        if(maxTillNow>maxSoFar){
+            maxSoFar=maxTillNow;
+        }
+        if(maxSoFar==0){
+            maxSoFar=*max_element(nums.begin(),nums.end());
+        }
+        return maxSoFar;
+    }
