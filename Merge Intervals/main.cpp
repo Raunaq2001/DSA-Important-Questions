@@ -1,32 +1,18 @@
-#include<iostream>
-#include<stdlib.h>
-using namespace std;
-int main()
-{
-    int intervals=0,start=0,end=0;
-    cout<<"Enter the number of intervals = ";
-    cin>>intervals;
-    int arr[intervals][2];
-    cout<<"Enter the intervals (space seperated) = ";
-    for(int i=0;i<intervals;i++){
-        for(int j=0;j<2;j++){
-            cin>>arr[i][j];
-        }
-    }
-    start=arr[0][0];
-    for(int i=0;i<intervals;i++){
-        if(i<intervals-1){
-            if(arr[i][1]>arr[i+1][0] || arr[i][1]==arr[i+1][0]){
-                end=arr[i+1][1];
+//Leetcode question # 56
+//@Author: RAUNAQ SINGH
+vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        vector<vector<int>> ans;
+        int j=0;
+        sort(intervals.begin(),intervals.end());
+        ans.push_back(intervals[0]);
+        for(int i=1;i<intervals.size();i++){
+            if(ans[j][1]>=intervals[i][0]){
+                ans[j][1]=max(intervals[i][1],ans[j][1]);
             }
             else{
-                cout<<"["<<start<<" ";
-                end=arr[i][1];
-                cout<<end<<"]";
-                start=arr[i+1][0];
+                ans.push_back(intervals[i]);
+                j++;
             }
         }
+        return ans;
     }
-    cout<<"["<<arr[intervals-1][0]<<" "<<arr[intervals-1][1]<<"]";
-    return 0;
-}
