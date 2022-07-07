@@ -1,3 +1,5 @@
+//Leetcode question # 987 OR Code Studios 6
+//https://www.geeksforgeeks.org/print-binary-tree-vertical-order
 #include <iostream>
 #include<bits/stdc++.h>
 using namespace std;
@@ -58,4 +60,59 @@ int main()
     root->right->right->right=new Node(9);
     verticleOrder(root);
     return 0;
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Leetcode Solution
+    void find(TreeNode*root,int &minVal,int &maxVal,int hd){
+        if(root==NULL) return;
+        if(hd<minVal) minVal=hd;
+        if(hd>maxVal) maxVal=hd;
+        find(root->left,minVal,maxVal,hd-1);
+        find(root->right,minVal,maxVal,hd+1);
+    }
+    void getNodes(TreeNode*root,vector<int> &ans,int lineNo,int hd){
+        if(root==NULL) return;
+        if(lineNo==hd) ans.push_back(root->val);
+        getNodes(root->left,ans,lineNo,hd-1);
+        getNodes(root->right,ans,lineNo,hd+1);
+    }
+    vector<vector<int>> verticalTraversal(TreeNode* root) {
+        if(root==NULL) return {};
+        vector<vector<int>> ans;
+        int minVal=0,maxVal=0;
+        find(root,minVal,maxVal,0);
+        for(int i=minVal;i<=maxVal;i++){
+            vector<int> temp;
+            getNodes(root,temp,i,0);
+            sort(temp.begin(),temp.end());
+            ans.push_back({temp});
+            temp.clear();
+        }
+        return ans;
+    }
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Code Studios solutions
+    void find(TreeNode<int>*root,int &minVal,int &maxVal,int hd){
+    if(root==NULL) return;
+    if(hd<minVal) minVal=hd;
+    if(hd>maxVal) maxVal=hd;
+    find(root->left,minVal,maxVal,hd-1);
+    find(root->right,minVal,maxVal,hd+1);
+}
+void getNodes(TreeNode<int>*root,vector<int> &ans,int lineNo,int hd){
+    if(root==NULL) return;
+    if(lineNo==hd) ans.push_back(root->data);
+    getNodes(root->left,ans,lineNo,hd-1);
+    getNodes(root->right,ans,lineNo,hd+1);
+}
+vector<int> verticalOrderTraversal(TreeNode<int> *root)
+{
+    if(root==NULL) return {};
+    vector<int> ans;
+    int minVal=0,maxVal=0;
+    find(root,minVal,maxVal,0);
+    for(int i=minVal;i<=maxVal;i++){
+        getNodes(root,ans,i,0);
+    }
+    return ans;
 }
