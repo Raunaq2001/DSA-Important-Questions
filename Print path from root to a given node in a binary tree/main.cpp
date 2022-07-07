@@ -55,3 +55,17 @@ int main()
     printPath(root,5);
     return 0;
 }
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Much simpler implementation
+void printPath(Node*root,vector<int> &ans,int target){
+    if(root==NULL) return;
+    ans.push_back(root->data);
+    if(root->data==target){
+        for(int i=0;i<ans.size();i++){
+            cout<<ans[i]<<" ";
+        }
+    }
+    printPath(root->left,ans,target);
+    printPath(root->right,ans,target);
+    ans.pop_back();
+}
