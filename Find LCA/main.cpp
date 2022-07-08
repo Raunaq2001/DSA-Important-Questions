@@ -1,3 +1,5 @@
+//Leetcode question # 236
+//https://takeuforward.org/data-structure/lowest-common-ancestor-for-two-given-nodes
 Node* lca(Node* root ,int n1 ,int n2 )
     {
        if(root==NULL || root->data==n1 || root->data==n2){
