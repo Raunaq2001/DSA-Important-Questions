@@ -1,33 +1,33 @@
-//Leetcode question # 138
-//https://www.youtube.com/watch?v=4apaOcK586U&t=441s&ab_channel=AnujBhaiya
-Node* copyRandomList(Node* head) {
-        Node*curr=head;
-        while(curr!=NULL){
-            Node*temp=curr->next;
-            curr->next=new Node(curr->val);
-            curr->next->next=temp;
-            curr=temp;
+    //Leetcode question # 138
+    //@Author: RAUNAQ SINGH
+    Node* copyRandomList(Node* head) {
+        if(head==NULL) return NULL;
+        Node*temp=head;
+        while(temp!=NULL){
+            Node* newNode=new Node(temp->val);
+            newNode->next=temp->next;
+            temp->next=newNode;
+            temp=temp->next->next;
         }
-        curr=head;
-        while(curr!=NULL){
-            if(curr->next!=NULL){
-                if(curr->random!=NULL){
-                    curr->next->random=curr->random->next;
-                    curr=curr->next;
-                }
-                else{
-                    curr->next->random=NULL;
-                }
+        temp=head;
+        while(temp!=NULL){
+            if(temp->next!=NULL && temp->random!=NULL) temp->next->random=temp->random->next;
+            else temp->next->random=NULL;
+            temp=temp->next->next;
+        }
+        temp=head;
+        Node*Head=temp->next,*newTemp=temp->next;
+        while(temp!=NULL){
+            if(temp->next!=NULL && newTemp->next!=NULL){
+                temp->next=temp->next->next;
+                newTemp->next=newTemp->next->next;    
             }
-        }
-        curr=head;
-        Node*temp=head->next;
-        Node*newNode=temp;
-        while(curr!=NULL){
-            curr->next=curr->next->next;
-            temp->next=temp->next->next;
-            curr=curr->next;
+            else{
+                temp->next=NULL;
+                newTemp->next=NULL;
+            }
             temp=temp->next;
+            newTemp=newTemp->next;
         }
-        return newNode;
+        return Head;
     }
