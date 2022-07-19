@@ -15,3 +15,17 @@ int findMaxConsecutiveOnes(vector<int>& nums) {
         maxOccourance=*max_element(ans.begin(),ans.end());
         return maxOccourance;
     }
+     //Better approach
+    //@Author: RAUNAQ SINGH
+    int findMaxConsecutiveOnes(vector<int>& nums){
+        int ans=0,counter=0;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]==1) counter++;
+            else{
+                ans=max(ans,counter);
+                counter=0;
+            }
+        }
+        ans=max(ans,counter);
+        return ans;
+    }
