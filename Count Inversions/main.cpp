@@ -15,7 +15,7 @@ long long mergeSort(long long arr[],int lb,int mid,int ub){
     }
     int i=0,j=0,k=lb;
     while(i<size1 && j<size2){
-        if(arr1[i]<arr2[j]){
+        if(arr1[i]<=arr2[j]){
             arr[k]=arr1[i];
             i++;
         }

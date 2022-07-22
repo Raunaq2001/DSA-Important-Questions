@@ -11,3 +11,14 @@ int findDuplicate(vector<int>& nums) {
         }
         return repeating;
     }
+    /*
+    //Another solution using map but is not that efficient as the above approach
+    int findDuplicate(vector<int>& nums){
+        if(nums.size()==0) return 0;
+        map<int,int> mpp;
+        for(int i=0;i<nums.size();i++) mpp[nums[i]]++;
+        for(auto &it:mpp){
+            if(it.second>1) return it.first;
+        }
+        return -1;
+    }*/
