@@ -35,6 +35,7 @@ class doubly_linked_list{
         }
         void reverseList(){
             struct node*current=head,*temp=NULL;
+            if(head->next==NULL) return;
             while(current!=NULL){
                 temp=current->prev;
                 current->prev=current->next;
