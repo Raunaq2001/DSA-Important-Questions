@@ -67,3 +67,39 @@ ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
         }
         return head;
     }
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            //Folowing code when the existing linkedlist is to be altered into sorted list
+    //@Author: RAUNAQ SINGH
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2){
+        if(l1==NULL && l2==NULL) return NULL;
+        if(l1==NULL) return l2;
+        if(l2==NULL) return l1;
+        ListNode*newHead=NULL,*temp=NULL;
+        while(l1!=NULL && l2!=NULL){
+            if(l1->val<=l2->val){
+                if(newHead==NULL){
+                    newHead=l1;
+                    temp=l1;
+                }
+                else{
+                    temp->next=l1;
+                    temp=temp->next;
+                }
+                l1=l1->next;
+            }
+            else{
+                if(newHead==NULL){
+                    newHead=l2;
+                    temp=l2;
+                }
+                else{
+                    temp->next=l2;
+                    temp=temp->next;
+                }
+                l2=l2->next;
+            }
+        }
+        if(l1!=NULL) temp->next=l1;
+        if(l2!=NULL) temp->next=l2;
+        return newHead;
+    }
