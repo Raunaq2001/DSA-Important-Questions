@@ -8,3 +8,12 @@ int maxProfit(vector<int>& prices) {
         }
         return maxProfit;
     }
+    //@Author: RAUNAQ SINGH
+    int maxProfit(vector<int>& prices){
+        vector<int> v(prices.size());
+        int maxProfit=0;
+        v[0]=prices[0];
+        for(int i=1;i<prices.size();i++) v[i]=min(v[i-1],prices[i]);
+        for(int i=0;i<prices.size();i++) maxProfit=max(maxProfit,prices[i]-v[i]);
+        return maxProfit;
+    }
