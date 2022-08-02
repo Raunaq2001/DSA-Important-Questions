@@ -14,6 +14,7 @@ vector<int> topView(Node *root)
             q.pop();
             Node*temp=it.first;
             int lineNo=it.second;
+            //If that lineNo doesnt exist in that map then add it
             if(mpp.find(lineNo)==mpp.end()){
                 mpp[lineNo]=temp->data;
             }
