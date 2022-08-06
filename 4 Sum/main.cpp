@@ -1,22 +1,28 @@
-//Leetcode problem # 18
-//@Author: RAUNAQ SINGH
-vector<vector<int>> fourSum(vector<int>& nums, int target) {
+    //@Author: RAUNAQ SINGH
+    //Passes 283/291 test cases
+    vector<vector<int>> fourSum(vector<int>& nums, int target) {
+        if(nums.size()<4) return {};
+        set<vector<int>> rs;
         sort(nums.begin(),nums.end());
-        vector<vector<int>> ans;
-        for(int i=0;i<nums.size();i++){
-            if(i!=0 && nums[i]==nums[i-1]) continue;
-            for(int j=i+1;j<nums.size();j++){
-                if(j!=i+1 && nums[j]==nums[j-1]) continue;
-                for(int k=j+1;k<nums.size();k++){
-                    if(k!=j+1 && nums[k]==nums[k-1]) continue;
-                    for(int l=k+1;l<nums.size();l++){
-                        if(l!=k+1 && nums[l]==nums[l-1]) continue;
-                        if(nums[i]+nums[j]+nums[k]+nums[l]==target){
-                            ans.push_back({nums[i],nums[j],nums[k],nums[l]});
-                        }
+        for(int i=0;i<nums.size()-3;i++){
+            for(int j=i+1;j<nums.size()-2;j++){
+                int p=j+1,q=nums.size()-1;
+                while(p<q){
+                    if((nums[i]+nums[j]+nums[p]+nums[q])==target){
+                        vector<int> temp(4);
+                        temp[0]=nums[i];
+                        temp[1]=nums[j];
+                        temp[2]=nums[p];
+                        temp[3]=nums[q];
+                        rs.insert(temp);
+                        p++;
+                        q--;
                     }
+                    else if((nums[i]+nums[j]+nums[p]+nums[q])<target) p++;
+                    else q--;
                 }
             }
         }
+        vector<vector<int>> ans(rs.begin(),rs.end());
         return ans;
     }
