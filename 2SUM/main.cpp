@@ -14,3 +14,20 @@ vector<int> twoSum(vector<int>& nums, int target) {
         }
         return ans;
     }
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//O(N) approach 
+vector<int> twoSum(vector<int> &nums,int target){
+        vector<int> ans;
+        sort(nums.begin(),nums.end());
+        int i=0,j=nums.size()-1;
+        while(i<j){
+                if(nums[i]+nums[j]==target){
+                        ans.push_back(i);
+                        ans.push_back(j);
+                }
+                else if(nums[i]+nums[j]<target) i++;
+                else j--;
+                if(nums[i]==nums[j]) continue;
+        }
+        return ans;
+}
